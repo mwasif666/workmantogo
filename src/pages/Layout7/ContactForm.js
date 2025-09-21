@@ -1,31 +1,12 @@
 import React, { useState } from "react";
 import styles from "./ContactForm.module.css";
 import { Form, Button } from "react-bootstrap";
-import { DatePicker, Upload } from "antd";
-import { InboxOutlined } from "@ant-design/icons";
+import { DatePicker } from "antd";
 import UploadFile from "./Upload";
 
-const { Dragger } = Upload;
-
 const ContactForm = () => {
-  const [fileList, setFileList] = useState([]);
-
   const onDateChange = (value, dateString) => {
     console.log("Selected Date & Time: ", dateString);
-  };
-
-  const uploadProps = {
-    name: "file",
-    multiple: true,
-    showUploadList: false, // ⛔ default list hide
-    beforeUpload: (file) => {
-      file.preview = URL.createObjectURL(file);
-      setFileList((prev) => [...prev, file]);
-      return false; // prevent auto upload
-    },
-    onRemove: (file) => {
-      setFileList((prev) => prev.filter((item) => item.uid !== file.uid));
-    },
   };
 
   return (
@@ -84,35 +65,6 @@ const ContactForm = () => {
               />
             </div>
 
-            {/* File Upload */}
-            {/* <div className="col-12 mb-3">
-              <Form.Label>File Upload</Form.Label>
-              <Dragger {...uploadProps} className={styles.antUpload}>
-                <p className="ant-upload-drag-icon">
-                  <InboxOutlined />
-                </p>
-                <p className="ant-upload-text">
-                  Click or drag a file to this area to upload
-                </p>
-              </Dragger>
-
-              {fileList.length > 0 && (
-                <div className={styles.previewWrapper}>
-                  {fileList.map((file, index) =>
-                    file.type && file.type.startsWith("image/") ? (
-                      <div key={index} className={styles.previewItem}>
-                        <img
-                          src={file.preview}
-                          alt={file.name}
-                          className={styles.previewImg}
-                        />
-                        <p className={styles.imgName}>{file.name}</p>
-                      </div>
-                    ) : null
-                  )}
-                </div>
-              )}
-            </div> */}
             <UploadFile />
 
             <div className="col-12 text-center">
