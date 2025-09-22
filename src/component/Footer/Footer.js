@@ -41,9 +41,11 @@ class Footer extends Component {
                       color: "white",
                     }}
                   >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Minima tenetur alias nam amet culpa debitis, quod inventore
-                    nisi quaerat dolorem.
+                    Welcome to Work Man to Go– your go to place for finding
+                    trusted local tradespeople. Whether you need a plumber to
+                    fix a leak, an electrician to keep the lights on, a roofer
+                    for repairs, or a carpenter for your next project, we’ve got
+                    you covered.
                   </p>
                 </div>
               </Col>
@@ -55,37 +57,27 @@ class Footer extends Component {
                   <ul className="list-unstyled footer-sub-menu">
                     <li>
                       <Link className="footer-link" to="/">
+                        Home
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="footer-link" to="/about">
                         About Us
                       </Link>
                     </li>
                     <li>
-                      <Link className="footer-link" to="/">
-                        Our Team
+                      <Link className="footer-link" to="/service">
+                        Services
                       </Link>
                     </li>
                     <li>
-                      <Link className="footer-link" to="/">
-                        Our Partners
+                      <Link className="footer-link" to="/contact">
+                        Contact Us
                       </Link>
                     </li>
                     <li>
-                      <Link className="footer-link" to="/">
-                        Innovations
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="footer-link" to="/">
-                        Certifcations
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="footer-link" to="/">
-                        Policy
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="footer-link" to="/">
-                        Press
+                      <Link className="footer-link" to="/booking">
+                        Booking
                       </Link>
                     </li>
                   </ul>
@@ -99,37 +91,27 @@ class Footer extends Component {
                   <ul className="list-unstyled footer-sub-menu">
                     <li>
                       <Link className="footer-link" to="/service">
-                        Stevedoring
+                        Carpentry
                       </Link>
                     </li>
                     <li>
                       <Link className="footer-link" to="/service">
-                        Break Bulk
+                        Roofing
                       </Link>
                     </li>
                     <li>
                       <Link className="footer-link" to="/service">
-                        Warehousing/Storage
+                        Electrical
                       </Link>
                     </li>
                     <li>
                       <Link className="footer-link" to="/service">
-                        Loading & Unloading
+                        Hvac
                       </Link>
                     </li>
                     <li>
                       <Link className="footer-link" to="/service">
-                        Project Cargo Stevedoring
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="footer-link" to="/service">
-                        Container Operations
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="footer-link" to="/service">
-                        Afghan Transit
+                        Plumbing
                       </Link>
                     </li>
                   </ul>
