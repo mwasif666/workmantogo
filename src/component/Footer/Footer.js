@@ -144,22 +144,22 @@ class Footer extends Component {
                     <ul className="list-unstyled footer-sub-menu text-white-50">
                       <li>
                         <strong>Phone:</strong> <br />
-                        <a href="tel:+923001234567" className="footer-link">
-                          +92 300 1234567
+                        <a href="tel:+1(437)5877072710" className="footer-link">
+                          +1(437)5877072710
                         </a>
                       </li>
                       <li className="mt-2">
                         <strong>Email:</strong> <br />
                         <a
-                          href="mailto:info@example.com"
+                          href="mailto:info@workmentogo.ca"
                           className="footer-link"
                         >
-                          info@example.com
+                          info@workmentogo.ca
                         </a>
                       </li>
                       <li className="mt-2">
                         <strong>Address:</strong> <br />
-                        Office #123, Clifton, Karachi, Pakistan
+                        Office address 4221, 23b street NE, T2E 7V9
                       </li>
                     </ul>
 
