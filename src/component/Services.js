@@ -1,40 +1,8 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import styles from "./Services.module.css";
-import img1 from "./../assets/images/services/1.png";
-import img2 from "./../assets/images/services/2.png";
-import img3 from "./../assets/images/services/3.png";
-import img4 from "./../assets/images/services/4.png";
-import img5 from "./../assets/images/services/5.png";
 import imgsvg from "./../assets/images/services/Icon.svg";
-
-const servicesTop = [
-  {
-    title: "Carpentry",
-    img: img1,
-    desc: "Custom woodwork, trim, built-ins, repairs, and more.",
-  },
-  {
-    title: "Roofing",
-    highlight: true,
-    img: img2,
-    desc: "Leak repairs, new roof installation, and long-lasting maintenance.",
-  },
-  {
-    title: "Electrical",
-    img: img3,
-    desc: "Panels, outlets, lighting installs, and safety inspections.",
-  },
-  {
-    title: "Hvac",
-    img: img4,
-    desc: "Furnace, A/C installs, tune-ups, efficiency upgrades.",
-  },
-  {
-    title: "Plumbing",
-    img: img5,
-    desc: "Leak fixes, fixture installs, water heaters, and more.",
-  },
-];
+import axios from "axios";
 
 function ServiceCard({ title, img, desc, highlight }) {
   return (
@@ -48,9 +16,6 @@ function ServiceCard({ title, img, desc, highlight }) {
         <div className={styles.overlayContent}>
           <div className={styles.overlayTitle}>{title}</div>
           <p className="mb-2">{desc}</p>
-          {/* <a href="#" className={styles.learnMore}>
-            Learn More →
-          </a> */}
         </div>
       </div>
     </div>
@@ -58,6 +23,26 @@ function ServiceCard({ title, img, desc, highlight }) {
 }
 
 export default function ServicesSection() {
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await axios.get(
+          "http://dashboard.workmentogo.ca/getAllServices"
+        );
+        setServices(response.data || []);
+      } catch (error) {
+        console.error("Error fetching services:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []);
+
   return (
     <section className={`${styles.wrap}`}>
       <div className="container">
@@ -79,13 +64,22 @@ export default function ServicesSection() {
           </a>
         </div>
 
-        <div className="row g-4 mb-3 justify-content-center">
-          {servicesTop.map((s) => (
-            <div key={s.title} className="col-12 col-md-4">
-              <ServiceCard {...s} />
-            </div>
-          ))}
-        </div>
+        {loading ? (
+          <p className="text-center">Loading services...</p>
+        ) : (
+          <div className="row g-4 mb-3 justify-content-center">
+            {services.map((s) => (
+              <div key={s.id} className="col-12 col-md-4">
+                <ServiceCard
+                  title={s.name}
+                  img={s.image}
+                  desc={s.description}
+                  highlight={s.highlight || false}
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
